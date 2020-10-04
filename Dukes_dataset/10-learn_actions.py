@@ -20,63 +20,63 @@ from sklearn import svm
 
 #---------------------------------------------------------------------------#
 def _read_stop_wrods():
-    pkl_file = '/home/'+getpass.getuser()+'/Datasets/Dukes_modified/learning/idf_FW_linguistic_features.p'
+    pkl_file = '/Users/mo/Datasets/11-Leeds/Dukes_modified/learning/idf_FW_linguistic_features.p'
     data = open(pkl_file, 'rb')
     stop = pickle.load(data)
     return stop
 
 #---------------------------------------------------------------------------#
 def _read_RCL_tree(id):
-    pkl_file = '/home/omari/Datasets/Dukes_modified/RCL-trees/'+str(id)+'_tree.p'
+    pkl_file = '/Users/mo/Datasets/11-Leeds/Dukes_modified/RCL-trees/'+str(id)+'_tree.p'
     data = open(pkl_file, 'rb')
     RCL_tree = pickle.load(data)
     return RCL_tree
 
 #---------------------------------------------------------------------------#
 def _read_tags():
-    pkl_file = '/home/'+getpass.getuser()+'/Datasets/Dukes_modified/learning/tags.p'
+    pkl_file = '/Users/mo/Datasets/11-Leeds/Dukes_modified/learning/tags.p'
     data = open(pkl_file, 'rb')
     hypotheses_tags, VF_dict, LF_dict = pickle.load(data)
     return [hypotheses_tags, VF_dict, LF_dict]
 
 #---------------------------------------------------------------------------#
 def _read_sentences(scene):
-    pkl_file = '/home/'+getpass.getuser()+'/Datasets/Dukes_modified/scenes/'+str(scene)+'_sentences.p'
+    pkl_file = '/Users/mo/Datasets/11-Leeds/Dukes_modified/scenes/'+str(scene)+'_sentences.p'
     data = open(pkl_file, 'rb')
     sentences = pickle.load(data)
     return sentences
 
 #---------------------------------------------------------------------------#
 def _read_vf(scene):
-    pkl_file = '/home/'+getpass.getuser()+'/Datasets/Dukes_modified/learning/'+str(scene)+'_visual_features.p'
+    pkl_file = '/Users/mo/Datasets/11-Leeds/Dukes_modified/learning/'+str(scene)+'_visual_features.p'
     data = open(pkl_file, 'rb')
     vf,tree = pickle.load(data)
     return vf,tree
 
 #---------------------------------------------------------------------------#
 def _read_semantic_trees(scene):
-    pkl_file = '/home/'+getpass.getuser()+'/Datasets/Dukes_modified/learning/'+str(scene)+'_semantic_grammar.p'
+    pkl_file = '/Users/mo/Datasets/11-Leeds/Dukes_modified/learning/'+str(scene)+'_semantic_grammar.p'
     data = open(pkl_file, 'rb')
     tree = pickle.load(data)
     return tree
 
 #---------------------------------------------------------------------------#
 def _read_layout(scene):
-    pkl_file = '/home/'+getpass.getuser()+'/Datasets/Dukes_modified/scenes/'+str(scene)+'_layout.p'
+    pkl_file = '/Users/mo/Datasets/11-Leeds/Dukes_modified/scenes/'+str(scene)+'_layout.p'
     data = open(pkl_file, 'rb')
     layout = pickle.load(data)
     return layout
 
 #---------------------------------------------------------------------------#
 def _read_grammar_trees(scene):
-    pkl_file = '/home/'+getpass.getuser()+'/Datasets/Dukes_modified/learning/'+str(scene)+'_grammar.p'
+    pkl_file = '/Users/mo/Datasets/11-Leeds/Dukes_modified/learning/'+str(scene)+'_grammar.p'
     data = open(pkl_file, 'rb')
     tree = pickle.load(data)
     return tree
 
 #---------------------------------------------------------------------------#
 def _read_passed_tags():
-    pkl_file = '/home/omari/Datasets/Dukes_modified/matching/Passed_tags1.p'
+    pkl_file = '/Users/mo/Datasets/11-Leeds/Dukes_modified/matching/Passed_tags1.p'
     data = open(pkl_file, 'rb')
     Matching,Matching_VF,passed_scenes,passed_sentences = pickle.load(data)
     # print Matching,Matching_VF,passed_scenes,passed_ids
@@ -93,7 +93,7 @@ def _is_yuk(sentence):
     return yuk
 
 def _read_tree(id):
-    pkl_file = '/home/omari/Datasets/Dukes_modified/matching/'+str(id)+'.p'
+    pkl_file = '/Users/mo/Datasets/11-Leeds/Dukes_modified/matching/'+str(id)+'.p'
     data = open(pkl_file, 'rb')
     results = pickle.load(data)
     return results
@@ -215,7 +215,7 @@ def _cluster_data(X, GT, name, n):
                 #     final_clf = gmm
                 #     print best_v
                 #     final_Y_ = Y_
-    pickle.dump( [final_Y_, best_gmm], open( '/home/omari/Datasets/Dukes_modified/results/'+name+'_clusters.p', "wb" ) )
+    pickle.dump( [final_Y_, best_gmm], open( '/Users/mo/Datasets/11-Leeds/Dukes_modified/results/'+name+'_clusters.p', "wb" ) )
 
     _print_results(GT,final_Y_,best_gmm)
 
