@@ -14,26 +14,26 @@ from learn_pcfg import *
 
 #---------------------------------------------------------------------------#
 def _read_stop_wrods():
-    pkl_file = '/home/'+getpass.getuser()+'/Datasets_old/Dukes_modified/learning/idf_FW_linguistic_features.p'
+    pkl_file = '/home/mo/Datasets/11-Leeds/Dukes_modified/learning/idf_FW_linguistic_features.p'
     data = open(pkl_file, 'rb')
     stop = pickle.load(data)
     return stop
 
 #---------------------------------------------------------------------------#
 def _read_tags():
-    pkl_file = '/home/'+getpass.getuser()+'/Datasets_old/Dukes_modified/learning/tags.p'
+    pkl_file = '/home/mo/Datasets/11-Leeds/Dukes_modified/learning/tags.p'
     data = open(pkl_file, 'rb')
     hypotheses_tags, VF_dict, LF_dict = pickle.load(data)
     return [hypotheses_tags, VF_dict, LF_dict]
 
 def _read_sentences(scene):
-    pkl_file = '/home/'+getpass.getuser()+'/Datasets_old/Dukes_modified/scenes/'+str(scene)+'_sentences.p'
+    pkl_file = '/home/mo/Datasets/11-Leeds/Dukes_modified/scenes/'+str(scene)+'_sentences.p'
     data = open(pkl_file, 'rb')
     sentences = pickle.load(data)
     return sentences
 
 def _read_passed_tags():
-    pkl_file = '/home/omari/Datasets_old/Dukes_modified/matching/Passed_tags1.p'
+    pkl_file = '/home/mo/Datasets/11-Leeds/Dukes_modified/matching/Passed_tags1.p'
     data = open(pkl_file, 'rb')
     Matching,Matching_VF,passed_scenes,passed_sentences = pickle.load(data)
     # print Matching,Matching_VF,passed_scenes,passed_ids
