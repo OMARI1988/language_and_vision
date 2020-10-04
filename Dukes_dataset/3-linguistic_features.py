@@ -21,7 +21,7 @@ def _read_pickle(scene):
 
 
 def _find_n_grams(sentence):
-    n_word = 1 ## length of n_grams
+    n_word = 3 ## length of n_grams
     w = sentence.split(' ')
     n_grams = []
     for i in range(len(w)):
