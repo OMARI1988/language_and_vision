@@ -18,7 +18,7 @@ import numpy as np
 #--------------------------------------------------------------------------------------------------------#
 
 def _read_pickle(scene):
-    pkl_file = '/Users/mo/Datasets/11-Leeds/Dukes_modified/scenes/'+str(scene)+'_layout.p'
+    pkl_file = '/home/mo/Datasets/11-Leeds/Dukes_modified/scenes/'+str(scene)+'_layout.p'
     data = open(pkl_file, 'rb')
     positions = pickle.load(data)
     return positions
@@ -326,7 +326,7 @@ def _cluster_data(X, GT, name, n):
                 #     final_clf = gmm
                 #     print best_v
                 #     final_Y_ = Y_
-    pickle.dump( [final_Y_, best_gmm], open( '/Users/mo/Datasets/11-Leeds/Dukes_modified/results/'+name+'_clusters.p', "wb" ) )
+    pickle.dump( [final_Y_, best_gmm], open( '/home/mo/Datasets/11-Leeds/Dukes_modified/results/'+name+'_clusters.p', "wb" ) )
 
     _print_results(GT,final_Y_,best_gmm)
 
@@ -396,7 +396,7 @@ def _print_results(GT,Y_,best_gmm):
     print("V-measure: %0.2f" % metrics.v_measure_score(true_labels, pred_labels))
 
 def _pretty_plot_directions():
-    final_Y_, best_gmm = pickle.load( open( '/Users/mo/Datasets/11-Leeds/Dukes_modified/results/directions_clusters.p', "rb" ) )
+    final_Y_, best_gmm = pickle.load( open( '/home/mo/Datasets/11-Leeds/Dukes_modified/results/directions_clusters.p', "rb" ) )
     print best_gmm.means_
     mpl.rcParams['legend.fontsize'] = 10
 
@@ -461,14 +461,14 @@ def _pretty_plot_directions():
         ax.set_xlabel("x")
         ax.set_ylabel("y")
         ax.set_zlabel("z")
-        fig.savefig('/Users/mo/Datasets/11-Leeds/Dukes_modified/results/directions/'+str(cluster)+'_cluster.png')
+        fig.savefig('/home/mo/Datasets/11-Leeds/Dukes_modified/results/directions/'+str(cluster)+'_cluster.png')
         # plt.show()
 
 def _pretty_plot_locations():
     clusters = {}
     XY = X_locations*180/9+10
     # print GT_locations
-    Y_, best_gmm = pickle.load(open( '/Users/mo/Datasets/11-Leeds/Dukes_modified/results/locations_clusters.p', "rb" ) )
+    Y_, best_gmm = pickle.load(open( '/home/mo/Datasets/11-Leeds/Dukes_modified/results/locations_clusters.p', "rb" ) )
     print XY
     for x,val in zip(XY,Y_):
         if val not in clusters:
@@ -484,7 +484,7 @@ def _pretty_plot_locations():
     for c in clusters:
         plt.matshow(clusters[c][:,:,0])
         plt.axis("off")
-        plt.savefig('/Users/mo/Datasets/11-Leeds/Dukes_modified/results/locations/'+str(c)+'_cluster.png')
+        plt.savefig('/home/mo/Datasets/11-Leeds/Dukes_modified/results/locations/'+str(c)+'_cluster.png')
         # avg_images[c] = cv2.imread(dir_save+'avg_'+str(c)+".png")
 
 def _pretty_plot_colours():
@@ -562,7 +562,7 @@ def _svm(x,y,x_test,y_test):
 ##########################################################################
 for scene in range(1,1001):
     print 'extracting feature from scene : ',scene
-    pkl_file = '/Users/mo/Datasets/11-Leeds/Dukes_modified/learning/'+str(scene)+'_visual_features.p'
+    pkl_file = '/home/mo/Datasets/11-Leeds/Dukes_modified/learning/'+str(scene)+'_visual_features.p'
     VF = {}
     positions = _read_pickle(scene)
     VF['actions'] = _get_actions(positions)
@@ -610,7 +610,7 @@ for test in range(1):
         if c != test:
             for scene in data:
                 # print scene
-                pkl_file = '/Users/mo/Datasets/11-Leeds/Dukes_modified/learning/'+str(scene)+'_visual_features.p'
+                pkl_file = '/home/mo/Datasets/11-Leeds/Dukes_modified/learning/'+str(scene)+'_visual_features.p'
                 positions = _read_pickle(scene)
                 X_colours, unique_colours, GT_colours           = _append_data(_get_colors(positions), X_colours, unique_colours, GT_colours, 0, .4)
                 X_shapes, unique_shapes, GT_shapes              = _append_data(_get_shapes(positions), X_shapes, unique_shapes, GT_shapes, 0, .4)
@@ -619,7 +619,7 @@ for test in range(1):
         if c == test:
             for scene in data:
                 # print scene
-                pkl_file = '/Users/mo/Datasets/11-Leeds/Dukes_modified/learning/'+str(scene)+'_visual_features.p'
+                pkl_file = '/home/mo/Datasets/11-Leeds/Dukes_modified/learning/'+str(scene)+'_visual_features.p'
                 positions = _read_pickle(scene)
                 X_colours_t, unique_colours, GT_colours_t           = _append_data(_get_colors(positions), X_colours_t, unique_colours, GT_colours_t, 0, .35)
                 X_shapes_t, unique_shapes, GT_shapes_t              = _append_data(_get_shapes(positions), X_shapes_t, unique_shapes, GT_shapes_t, 0, .3)

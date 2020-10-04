@@ -9,10 +9,10 @@ import operator
 #--------------------------------------------------------------------------------------------------------#
 
 def _read_pickle(scene):
-    pkl_file = '/Users/mo/Datasets/11-Leeds/Dukes_modified/learning/'+str(scene)+'_linguistic_features.p'
+    pkl_file = '/home/mo/Datasets/11-Leeds/Dukes_modified/learning/'+str(scene)+'_linguistic_features.p'
     data = open(pkl_file, 'rb')
     lf = pickle.load(data)
-    pkl_file = '/Users/mo/Datasets/11-Leeds/Dukes_modified/learning/'+str(scene)+'_visual_features.p'
+    pkl_file = '/home/mo/Datasets/11-Leeds/Dukes_modified/learning/'+str(scene)+'_visual_features.p'
     data = open(pkl_file, 'rb')
     [vf,tree] = pickle.load(data)
     return lf,vf
@@ -171,5 +171,5 @@ print hyp_number,correct_number
 #                 hypotheses_tags[LF][VF] = cost_matrix[val2,val1]
 #                 print '>>>>>>>>>>>',VF,'---',LF,':',cost_matrix[val2,val1]
 
-pkl_file = '/Users/mo/Datasets/11-Leeds/Dukes_modified/learning/tags.p'
+pkl_file = '/home/mo/Datasets/11-Leeds/Dukes_modified/learning/tags.p'
 pickle.dump([hypotheses_tags, VF_dict, LF_dict], open(pkl_file, 'wb'))

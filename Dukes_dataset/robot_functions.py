@@ -45,10 +45,7 @@ class Robot():
         self.words = []
         self.positions = {}
         # manage diroctories to store data and images
-        # self.image_dir = '/home/omari/Datasets/Dukes_modified/scenes/'
-        self.image_dir = '/Users/mo/Datasets/11-Leeds/Dukes_modified/scenes/'
-        # self.dir_motion = '/home/omari/Datasets_old/Dukes_modified/sences/scene'
-        # self.image_dir2 = '/home/omari/Dropbox/robot_modified/scenes/'
+        self.image_dir = '/home/mo/Datasets/11-Leeds/Dukes_modified/scenes/'
         if not os.path.isdir(self.image_dir):
 	        print 'please change the diroctory in extract_data.py'
 

@@ -15,14 +15,14 @@ def read_data():
     Data = {}
 
     Data['RCL'] = {}
-    tree = ET.parse('/Users/mo/Datasets/11-Leeds/Dukes_modified/treebank/losr.xml')
+    tree = ET.parse('/home/mo/Datasets/11-Leeds/Dukes_modified/treebank/losr.xml')
     root = tree.getroot()
     for child in root:
         Id = int(child.attrib['id'])
         losr = child.attrib['losr']
         Data['RCL'][Id] = losr
 
-    tree = ET.parse('/Users/mo/Datasets/11-Leeds/Dukes_modified/treebank/commands.xml')
+    tree = ET.parse('/home/mo/Datasets/11-Leeds/Dukes_modified/treebank/commands.xml')
     root = tree.getroot()
     Data[root.tag] = {}
     Data['commands_id'] = {}
@@ -39,7 +39,7 @@ def read_data():
             else:
                 Data[root.tag][sceneid][Id] = child.attrib['text']
 
-    tree1 = ET.parse('/Users/mo/Datasets/11-Leeds/Dukes_modified/treebank/comments.xml')
+    tree1 = ET.parse('/home/mo/Datasets/11-Leeds/Dukes_modified/treebank/comments.xml')
     root1 = tree1.getroot()
     Data['comments'] = {}
     for child in root1:
@@ -48,7 +48,7 @@ def read_data():
 
     Data['layouts'] = {}
     Data['gripper'] = {}
-    tree = ET.parse('/Users/mo/Datasets/11-Leeds/Dukes_modified/treebank/layouts.xml')
+    tree = ET.parse('/home/mo/Datasets/11-Leeds/Dukes_modified/treebank/layouts.xml')
     root = tree.getroot()
     for child in root:
         counter = 0
@@ -64,7 +64,7 @@ def read_data():
                 counter += 1
 
     Data['scenes'] = {}
-    tree = ET.parse('/Users/mo/Datasets/11-Leeds/Dukes_modified/treebank/scenes.xml')
+    tree = ET.parse('/home/mo/Datasets/11-Leeds/Dukes_modified/treebank/scenes.xml')
     root = tree.getroot()
     for child in root:
         Id = int(child.attrib['id'])
