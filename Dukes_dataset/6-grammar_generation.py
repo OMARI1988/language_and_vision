@@ -28,15 +28,21 @@ def _read_vf(scene):
 def _get_grammar_trees(S,tree):
     grammar_trees = {}
     count = 0
-    if len(tree['py'].keys()) == 3:
-        for i1 in range(1,len(S)-1):
-            for i2 in range(1,len(S)-i1):
-                grammar_trees[count] = [S[0:i1],S[i1:i2+i1],S[i2+i1:]]
+    try:
+        if len(tree['py'].keys()) == 3:
+            for i1 in range(1,len(S)-1):
+                for i2 in range(1,len(S)-i1):
+                    grammar_trees[count] = [S[0:i1],S[i1:i2+i1],S[i2+i1:]]
+                    count+=1
+    except:
+        pass
+    try:
+        if len(tree['py'].keys()) == 2:
+            for i1 in range(1,len(S)):
+                grammar_trees[count] = [S[0:i1],S[i1:]]
                 count+=1
-    if len(tree['py'].keys()) == 2:
-        for i1 in range(1,len(S)):
-            grammar_trees[count] = [S[0:i1],S[i1:]]
-            count+=1
+    except:
+        pass
     return grammar_trees
 
 # pkl_file = '/home/mo/Datasets/11-Leeds/Dukes_modified/learning/tags.p'
